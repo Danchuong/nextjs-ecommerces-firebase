@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -41,7 +42,7 @@ export default function Page() {
   if (!productIdsList && productIdsList?.length === 0) {
     return (
       <div>
-        <h1>Products Not Found</h1>
+        <h1>Không tìm thấy sản phẩm</h1>
       </div>
     );
   }
@@ -64,8 +65,9 @@ export default function Page() {
 
   return (
     <main className="p-5 flex flex-col gap-4">
-      <h1 className="text-xl">Checkout</h1>
+      <h1 className="text-xl">Thanh toán</h1>
       <Checkout productList={productList} />
     </main>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { ProductCard } from "@/app/components/Products";
@@ -18,14 +19,14 @@ export default function Page() {
   }
   return (
     <main className="flex flex-col gap-3 justify-center items-center p-5">
-      <h1 className="text-2xl font-semibold">Favorites</h1>
+      <h1 className="text-2xl font-semibold">Sản phẩm yêu thích</h1>
       {(!data?.favorites || data?.favorites?.length === 0) && (
         <div className="flex flex-col gap-5 justify-center items-center h-full w-full py-20">
           <div className="flex justify-center">
             <img className="h-[200px]" src="/svgs/Empty-pana.svg" alt="" />
           </div>
           <h1 className="text-gray-600 font-semibold">
-            Please Add Products To Favorites
+            Vui lòng thêm sản phẩm vào danh sách yêu thích
           </h1>
         </div>
       )}
@@ -42,3 +43,4 @@ function ProductItem({ productId }) {
   const { data: product } = useProduct({ productId: productId });
   return <ProductCard product={product} />;
 }
+// ...existing code...

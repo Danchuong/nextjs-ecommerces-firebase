@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useProduct } from "@/lib/firestore/products/read";
@@ -29,14 +30,14 @@ function ReviewCard({ item }) {
   const { data: product } = useProduct({ productId: item?.productId });
 
   const handleDelete = async () => {
-    if (!confirm("Are you sure?")) return;
+    if (!confirm("Bạn có chắc chắn không?")) return;
     setIsLoading(true);
     try {
       await deleteReview({
         uid: item?.uid,
         productId: item?.productId,
       });
-      toast.success("Successfully Deleted");
+      toast.success("Xóa thành công");
     } catch (error) {
       toast.error(error?.message);
     }
@@ -74,3 +75,4 @@ function ReviewCard({ item }) {
     </div>
   );
 }
+// ...existing code...

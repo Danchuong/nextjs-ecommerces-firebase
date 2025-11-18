@@ -49,7 +49,7 @@ export default function Categories({ categories }) {
   return (
     <div className="flex flex-col gap-8 justify-center overflow-hidden md:p-10 p-5">
       <div className="flex justify-center w-full">
-        <h1 className="text-lg font-semibold">Shop By Category</h1>
+        <h1 className="text-lg font-semibold">Mua theo danh mục</h1>
       </div>
       <Slider {...settings}>
         {(categories?.length <= 2
@@ -57,11 +57,14 @@ export default function Categories({ categories }) {
           : categories
         )?.map((category) => {
           return (
-            <Link href={`/categories/${category?.id}`}>
+            <Link href={`/categories/${category?.id}`} key={category?.id}>
               <div className="px-2">
                 <div className="flex flex-col gap-2 items-center justify-center">
                   <div className="md:h-32 md:w-32 h-24 w-24 rounded-full md:p-5 p-2 border overflow-hidden">
-                    <img src={category?.imageURL} alt="" />
+                    <img
+                      src={category?.imageURL}
+                      alt={category?.name ? `Ảnh danh mục ${category?.name}` : "Ảnh danh mục"}
+                    />
                   </div>
                   <h1 className="font-semibold">{category?.name}</h1>
                 </div>

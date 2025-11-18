@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -39,7 +40,7 @@ export default function Page() {
         displayName: data?.name,
         photoURL: user?.photoURL,
       });
-      toast.success("Successfully Sign Up");
+      toast.success("Đăng ký thành công");
       router.push("/account");
     } catch (error) {
       toast.error(error?.message);
@@ -51,10 +52,10 @@ export default function Page() {
     <main className="w-full flex justify-center items-center bg-gray-300 md:p-24 p-10 min-h-screen">
       <section className="flex flex-col gap-3">
         <div className="flex justify-center">
-          <img className="h-12" src="/logo.png" alt="Logo" />
+          <img className="h-12" src="/logo.png" alt="Biểu tượng" />
         </div>
         <div className="flex flex-col gap-3 bg-white md:p-10 p-5 rounded-xl md:min-w-[440px] w-full">
-          <h1 className="font-bold text-xl">Sign Up With Email</h1>
+          <h1 className="font-bold text-xl">Đăng ký bằng Email</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -63,7 +64,7 @@ export default function Page() {
             className="flex flex-col gap-3"
           >
             <input
-              placeholder="Enter Your Name"
+              placeholder="Nhập tên của bạn"
               type="text"
               name="user-name"
               id="user-name"
@@ -74,7 +75,7 @@ export default function Page() {
               className="px-3 py-2 rounded-xl border focus:outline-none w-full"
             />
             <input
-              placeholder="Enter Your Email"
+              placeholder="Nhập Email của bạn"
               type="email"
               name="user-email"
               id="user-email"
@@ -85,7 +86,7 @@ export default function Page() {
               className="px-3 py-2 rounded-xl border focus:outline-none w-full"
             />
             <input
-              placeholder="Enter Your Password"
+              placeholder="Nhập Mật khẩu của bạn"
               type="password"
               name="user-password"
               id="user-password"
@@ -101,13 +102,13 @@ export default function Page() {
               type="submit"
               color="primary"
             >
-              Sign Up
+              Đăng ký
             </Button>
           </form>
           <div className="flex justify-between">
             <Link href={`/login`}>
               <button className="font-semibold text-sm text-blue-700">
-                Already user? Sign In
+                Đã có tài khoản? Đăng nhập
               </button>
             </Link>
           </div>
@@ -116,3 +117,4 @@ export default function Page() {
     </main>
   );
 }
+// ...existing code...

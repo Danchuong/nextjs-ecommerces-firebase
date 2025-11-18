@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import dynamic from "next/dynamic";
@@ -25,13 +26,14 @@ export default function Description({ data, handleData }) {
   };
   return (
     <section className="flex flex-col gap-3 bg-white border p-4 rounded-xl h-full">
-      <h1 className="font-semibold">Description</h1>
+      <h1 className="font-semibold">Mô tả</h1>
       <ReactQuill
         value={data?.description}
         onChange={handleChange}
         modules={modules}
-        placeholder="Enter your description here..."
+        placeholder="Nhập mô tả sản phẩm..."
       />
     </section>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { Button } from "@nextui-org/react";
@@ -68,7 +69,7 @@ export default function Collections({ collections }) {
                   <div className="flex gap-4">
                     <Link href={`/collections/${collection?.id}`}>
                       <button className="bg-blue-500 text-white text-xs md:text-sm px-4 py-2 rounded-lg">
-                        SHOP NOW
+                        Mua ngay
                       </button>
                     </Link>
                   </div>
@@ -88,3 +89,4 @@ export default function Collections({ collections }) {
     </div>
   );
 }
+// ...existing code...

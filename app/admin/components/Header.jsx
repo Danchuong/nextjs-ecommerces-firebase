@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -16,7 +17,7 @@ export default function Header({ toggleSidebar }) {
         </button>
       </div>
       <div className="w-full flex justify-between items-center pr-0 md:pr-[260px]">
-        <h1 className="text-xl font-semibold">Dashboard</h1>
+        <h1 className="text-xl font-semibold">Bảng điều khiển</h1>
         <div className="flex gap-2 items-center">
           <div className="md:flex flex-col items-end hidden">
             <h1 className="text-sm font-semibold">{admin?.name}</h1>
@@ -28,3 +29,4 @@ export default function Header({ toggleSidebar }) {
     </section>
   );
 }
+// ...existing code...

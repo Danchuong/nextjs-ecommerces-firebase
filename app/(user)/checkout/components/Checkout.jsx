@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -31,14 +32,14 @@ export default function Checkout({ productList }) {
     setIsLoading(true);
     try {
       if (totalPrice <= 0) {
-        throw new Error("Price should be greater than 0");
+        throw new Error("Tổng tiền phải lớn hơn 0");
       }
       if (!address?.fullName || !address?.mobile || !address?.addressLine1) {
-        throw new Error("Please Fill All Address Details");
+        throw new Error("Vui lòng điền đầy đủ thông tin địa chỉ");
       }
 
       if (!productList || productList?.length === 0) {
-        throw new Error("Product List Is Empty");
+        throw new Error("Danh sách sản phẩm trống");
       }
 
       if (paymentMode === "prepaid") {
@@ -55,7 +56,7 @@ export default function Checkout({ productList }) {
           address: address,
         });
         router.push(`/checkout-cod?checkout_id=${checkoutId}`);
-        toast.success("Successfully Placed!");
+        toast.success("Đặt hàng thành công!");
         confetti();
       }
     } catch (error) {
@@ -67,13 +68,13 @@ export default function Checkout({ productList }) {
   return (
     <section className="flex flex-col md:flex-row  gap-3">
       <section className="flex-1 flex flex-col gap-4 border rounded-xl p-4">
-        <h1 className="text-xl">Shipping Address</h1>
+        <h1 className="text-xl">Địa chỉ giao hàng</h1>
         <div className="flex flex-col gap-2">
           <input
             type="text"
             id="full-name"
             name="full-name"
-            placeholder="Full Name"
+            placeholder="Họ và tên"
             value={address?.fullName ?? ""}
             onChange={(e) => {
               handleAddress("fullName", e.target.value);
@@ -84,7 +85,7 @@ export default function Checkout({ productList }) {
             type="tel"
             id="mobile"
             name="mobile"
-            placeholder="Mobile Number"
+            placeholder="Số điện thoại"
             value={address?.mobile ?? ""}
             onChange={(e) => {
               handleAddress("mobile", e.target.value);
@@ -106,7 +107,7 @@ export default function Checkout({ productList }) {
             type="text"
             id="address-line-1"
             name="address-line-1"
-            placeholder="Enter Address Line 1"
+            placeholder="Địa chỉ dòng 1"
             value={address?.addressLine1 ?? ""}
             onChange={(e) => {
               handleAddress("addressLine1", e.target.value);
@@ -117,7 +118,7 @@ export default function Checkout({ productList }) {
             type="text"
             id="address-line-2"
             name="address-line-2"
-            placeholder="Enter Address Line 2"
+            placeholder="Địa chỉ dòng 2"
             value={address?.addressLine2 ?? ""}
             onChange={(e) => {
               handleAddress("addressLine2", e.target.value);
@@ -128,7 +129,7 @@ export default function Checkout({ productList }) {
             type="number"
             id="pincode"
             name="pincode"
-            placeholder="Enter Pincode"
+            placeholder="Mã bưu chính"
             value={address?.pincode ?? ""}
             onChange={(e) => {
               handleAddress("pincode", e.target.value);
@@ -139,7 +140,7 @@ export default function Checkout({ productList }) {
             type="text"
             id="city"
             name="city"
-            placeholder="Enter City"
+            placeholder="Thành phố"
             value={address?.city ?? ""}
             onChange={(e) => {
               handleAddress("city", e.target.value);
@@ -150,7 +151,7 @@ export default function Checkout({ productList }) {
             type="text"
             id="state"
             name="state"
-            placeholder="Enter State"
+            placeholder="Tỉnh/Thành"
             value={address?.state ?? ""}
             onChange={(e) => {
               handleAddress("state", e.target.value);
@@ -161,7 +162,7 @@ export default function Checkout({ productList }) {
             type="text"
             id="delivery-notes"
             name="delivery-notes"
-            placeholder="Notes about you order, e.g special notes for delivery"
+            placeholder="Ghi chú cho đơn hàng, ví dụ: lưu ý giao hàng"
             value={address?.orderNote ?? ""}
             onChange={(e) => {
               handleAddress("orderNote", e.target.value);
@@ -172,7 +173,7 @@ export default function Checkout({ productList }) {
       </section>
       <div className="flex-1 flex flex-col gap-3">
         <section className="flex flex-col gap-3 border rounded-xl p-4">
-          <h1 className="text-xl">Products</h1>
+          <h1 className="text-xl">Sản phẩm</h1>
           <div className="flex flex-col gap-2">
             {productList?.map((item) => {
               return (
@@ -185,14 +186,14 @@ export default function Checkout({ productList }) {
                   <div className="flex-1 flex flex-col">
                     <h1 className="text-sm">{item?.product?.title}</h1>
                     <h3 className="text-green-600 font-semibold text-[10px]">
-                      ₹ {item?.product?.salePrice}{" "}
-                      <span className="text-black">X</span>{" "}
+                      {item?.product?.salePrice} đ
+                      <span className="text-black">x</span>
                       <span className="text-gray-600">{item?.quantity}</span>
                     </h3>
                   </div>
                   <div>
                     <h3 className="text-sm">
-                      ₹ {item?.product?.salePrice * item?.quantity}
+                      {item?.product?.salePrice * item?.quantity} đ
                     </h3>
                   </div>
                 </div>
@@ -200,13 +201,13 @@ export default function Checkout({ productList }) {
             })}
           </div>
           <div className="flex justify-between w-full items-center p-2 font-semibold">
-            <h1>Total</h1>
-            <h1>₹ {totalPrice}</h1>
+            <h1>Tổng</h1>
+            <h1>{totalPrice} đ</h1>
           </div>
         </section>
         <section className="flex flex-col gap-3 border rounded-xl p-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <h2 className="text-xl">Payment Mode</h2>
+            <h2 className="text-xl">Phương thức thanh toán</h2>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => {
@@ -218,7 +219,7 @@ export default function Checkout({ productList }) {
                   <CheckSquare2Icon className="text-blue-500" size={13} />
                 )}
                 {paymentMode === "cod" && <Square size={13} />}
-                Prepaid
+                Thanh toán trước
               </button>
               <button
                 onClick={() => {
@@ -230,15 +231,15 @@ export default function Checkout({ productList }) {
                 {paymentMode === "cod" && (
                   <CheckSquare2Icon className="text-blue-500" size={13} />
                 )}
-                Cash On Delivery
+                Thanh toán khi nhận hàng
               </button>
             </div>
           </div>
           <div className="flex gap-1 items-center">
             <CheckSquare2Icon className="text-blue-500" size={13} />
             <h4 className="text-xs text-gray-600">
-              I agree with the{" "}
-              <span className="text-blue-700">terms & conditions</span>
+              Tôi đồng ý với{" "}
+              <span className="text-blue-700">điều khoản & điều kiện</span>
             </h4>
           </div>
           <Button
@@ -247,10 +248,11 @@ export default function Checkout({ productList }) {
             onClick={handlePlaceOrder}
             className="bg-black text-white"
           >
-            Place Order
+            Đặt hàng
           </Button>
         </section>
       </div>
     </section>
   );
 }
+// ...existing code...

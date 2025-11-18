@@ -21,7 +21,7 @@ export default function FavoriteButton({ productId }) {
     try {
       if (!user?.uid) {
         router.push("/login");
-        throw new Error("Please Logged In First!");
+        throw new Error("Vui lòng đăng nhập trước!");
       }
       if (data?.favorites?.includes(productId)) {
         const newList = data?.favorites?.filter((item) => item != productId);

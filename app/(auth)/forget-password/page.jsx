@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -31,9 +32,9 @@ export default function Page() {
     setIsLoading(true);
     try {
       await sendPasswordResetEmail(auth, data?.email);
-      toast.success("Reset Link has been sent to your email!");
+      toast.success("Liên kết đặt lại đã được gửi đến email của bạn!");
     } catch (error) {
-      toast.error(error?.message);
+      toast.error("Có lỗi xảy ra: " + (error?.message || ""));
     }
     setIsLoading(false);
   };
@@ -45,7 +46,7 @@ export default function Page() {
           <img className="h-12" src="/logo.png" alt="Logo" />
         </div>
         <div className="flex flex-col gap-3 bg-white md:p-10 p-5 rounded-xl md:min-w-[440px] w-full">
-          <h1 className="font-bold text-xl">Forgot Password</h1>
+          <h1 className="font-bold text-xl">Quên mật khẩu</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -54,7 +55,7 @@ export default function Page() {
             className="flex flex-col gap-3"
           >
             <input
-              placeholder="Enter Your Email"
+              placeholder="Nhập email của bạn"
               type="email"
               name="user-email"
               id="user-email"
@@ -71,13 +72,13 @@ export default function Page() {
               type="submit"
               color="primary"
             >
-              Send Reset Link
+              Gửi liên kết đặt lại
             </Button>
           </form>
           <div className="flex justify-between">
             <Link href={`/login`}>
               <button className="font-semibold text-sm text-blue-700">
-                Sign In
+                Đăng nhập
               </button>
             </Link>
           </div>
@@ -86,3 +87,4 @@ export default function Page() {
     </main>
   );
 }
+// ...existing code...

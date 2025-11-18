@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useOrder } from "@/lib/firestore/orders/read";
@@ -29,7 +30,7 @@ export default function Page() {
   return (
     <main className="flex flex-col gap-4 p-5">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-semibold">Order Details</h1>
+        <h1 className="text-2xl font-semibold">Chi tiết đơn hàng</h1>
         <ChangeOrderStatus order={order} />
       </div>
       <div className="flex flex-col gap-2 border rounded-lg p-4 bg-white">
@@ -41,7 +42,7 @@ export default function Page() {
             <h3 className="bg-green-100 text-green-500 text-xs rounded-lg px-2 py-1 uppercase">
               {order?.status ?? "pending"}
             </h3>
-            <h3 className="text-green-600">₹ {totalAmount}</h3>
+            <h3 className="text-green-600">{totalAmount} đ</h3>
           </div>
           <h4 className="text-gray-600 text-xs">
             {order?.timestampCreate?.toDate()?.toString()}
@@ -61,7 +62,7 @@ export default function Page() {
                     {product?.price_data?.product_data?.name}
                   </h1>
                   <h1 className="text-gray-500 text-xs">
-                    ₹ {product?.price_data?.unit_amount / 100} <span>X</span>{" "}
+                    {product?.price_data?.unit_amount / 100} đ <span>X</span>{" "}
                     <span>{product?.quantity?.toString()}</span>
                   </h1>
                 </div>
@@ -71,16 +72,16 @@ export default function Page() {
         </div>
       </div>
 
-      <h1 className="text-2xl font-semibold">Address</h1>
+      <h1 className="text-2xl font-semibold">Địa chỉ</h1>
       <div className="flex flex-col gap-2 border rounded-lg p-4 bg-white">
         <table>
           <tbody>
             <tr>
-              <td>Full Name</td>
+              <td>Họ và tên</td>
               <td>{address?.fullName}</td>
             </tr>
             <tr>
-              <td>Mobile</td>
+              <td>Điện thoại</td>
               <td>{address?.mobile}</td>
             </tr>
             <tr>
@@ -88,27 +89,27 @@ export default function Page() {
               <td>{address?.email}</td>
             </tr>
             <tr>
-              <td>Address Line 1</td>
+              <td>Địa chỉ dòng 1</td>
               <td>{address?.addressLine1}</td>
             </tr>
             <tr>
-              <td>Address Line 2</td>
+              <td>Địa chỉ dòng 2</td>
               <td>{address?.addressLine2}</td>
             </tr>
             <tr>
-              <td>Pincode</td>
+              <td>Mã bưu điện</td>
               <td>{address?.pincode}</td>
             </tr>
             <tr>
-              <td>City</td>
+              <td>Thành phố</td>
               <td>{address?.city}</td>
             </tr>
             <tr>
-              <td>State</td>
+              <td>Tỉnh/Thành</td>
               <td>{address?.state}</td>
             </tr>
             <tr>
-              <td>Notes</td>
+              <td>Ghi chú</td>
               <td>{address?.note}</td>
             </tr>
           </tbody>
@@ -117,3 +118,4 @@ export default function Page() {
     </main>
   );
 }
+// ...existing code...

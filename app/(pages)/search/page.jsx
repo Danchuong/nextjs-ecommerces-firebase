@@ -1,3 +1,4 @@
+// ...existing code...
 import { ProductCard } from "@/app/components/Products";
 import { algoliasearch } from "algoliasearch";
 import SearchBox from "./components/SearchBox";
@@ -30,14 +31,14 @@ export default async function Page({ searchParams }) {
     <main className="flex flex-col gap-1 min-h-screen p-5">
       <SearchBox />
       <div className="flex flex-col gap-1 justify-center items-center">
-        <h1 className="text-xs text-gray-500">Powered By</h1>
-        <img src="/algolia.png" className="h-5" alt="Algolia Logo" />
+        <h1 className="text-xs text-gray-500">Được cung cấp bởi</h1>
+        <img src="/algolia.png" className="h-5" alt="Logo Algolia" />
       </div>
       {products?.length != 0 && (
         <div className="w-full flex justify-center">
           <div className="flex flex-col gap-5 max-w-[900px] p-5">
             <h1 className="text-center font-semibold text-lg">
-              Products for {q}
+              Sản phẩm cho {q}
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
               {products?.map((item) => {
@@ -50,3 +51,4 @@ export default async function Page({ searchParams }) {
     </main>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { Bar } from "react-chartjs-2";
@@ -27,7 +28,7 @@ export default function OrdersChart({ items }) {
     labels: items?.map((item) => item?.date),
     datasets: [
       {
-        label: "Orders",
+        label: "Đơn hàng",
         data: items?.map((item) => item?.data?.totalOrders),
         backgroundColor: "#879fff20",
         borderColor: "#879fff80",
@@ -46,7 +47,7 @@ export default function OrdersChart({ items }) {
       },
       title: {
         display: true,
-        text: "Total Order Bar Chart",
+        text: "Biểu đồ cột tổng đơn hàng",
       },
     },
     scales: {
@@ -67,3 +68,4 @@ export default function OrdersChart({ items }) {
     </section>
   );
 }
+// ...existing code...

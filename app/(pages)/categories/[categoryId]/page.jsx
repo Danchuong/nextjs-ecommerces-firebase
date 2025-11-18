@@ -1,3 +1,4 @@
+// ...existing code...
 import { ProductCard } from "@/app/components/Products";
 import { getCategory } from "@/lib/firestore/categories/read_server";
 import { getProductsByCategory } from "@/lib/firestore/products/read_server";
@@ -7,7 +8,7 @@ export async function generateMetadata({ params }) {
   const category = await getCategory({ id: categoryId });
 
   return {
-    title: `${category?.name} | Category`,
+    title: `${category?.name} | Danh mục`,
     openGraph: {
       images: [category?.imageURL],
     },
@@ -31,3 +32,4 @@ export default async function Page({ params }) {
     </main>
   );
 }
+// ...existing code...

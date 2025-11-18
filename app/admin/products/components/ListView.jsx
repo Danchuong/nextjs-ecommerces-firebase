@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useProducts } from "@/lib/firestore/products/read";
@@ -57,26 +58,26 @@ export default function ListView() {
         <thead>
           <tr>
             <th className="font-semibold border-y bg-white px-3 py-2 border-l rounded-l-lg">
-              SN
+              STT
             </th>
-            <th className="font-semibold border-y bg-white px-3 py-2">Image</th>
+            <th className="font-semibold border-y bg-white px-3 py-2">Ảnh</th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Title
-            </th>
-            <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Price
+              Tiêu đề
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Stock
+              Giá
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Orders
+              Tồn kho
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Status
+              Đơn hàng
+            </th>
+            <th className="font-semibold border-y bg-white px-3 py-2 text-left">
+              Trạng thái
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 border-r rounded-r-lg text-center">
-              Actions
+              Hành động
             </th>
           </tr>
         </thead>
@@ -99,7 +100,7 @@ export default function ListView() {
           size="sm"
           variant="bordered"
         >
-          Previous
+          Trước
         </Button>
         <select
           value={pageLimit}
@@ -108,11 +109,11 @@ export default function ListView() {
           name="perpage"
           id="perpage"
         >
-          <option value={3}>3 Items</option>
-          <option value={5}>5 Items</option>
-          <option value={10}>10 Items</option>
-          <option value={20}>20 Items</option>
-          <option value={100}>100 Items</option>
+          <option value={3}>3 mục</option>
+          <option value={5}>5 mục</option>
+          <option value={10}>10 mục</option>
+          <option value={20}>20 mục</option>
+          <option value={100}>100 mục</option>
         </select>
         <Button
           isDisabled={isLoading || products?.length === 0}
@@ -120,7 +121,7 @@ export default function ListView() {
           size="sm"
           variant="bordered"
         >
-          Next
+          Tiếp
         </Button>
       </div>
     </div>
@@ -132,12 +133,12 @@ function Row({ item, index }) {
   const router = useRouter();
 
   const handleDelete = async () => {
-    if (!confirm("Are you sure?")) return;
+    if (!confirm("Bạn có chắc chắn không?")) return;
 
     setIsDeleting(true);
     try {
       await deleteProduct({ id: item?.id });
-      toast.success("Successfully Deleted");
+      toast.success("Xóa thành công");
     } catch (error) {
       toast.error(error?.message);
     }
@@ -166,17 +167,17 @@ function Row({ item, index }) {
         {item?.title}{" "}
         {item?.isFeatured === true && (
           <span className="ml-2 bg-gradient-to-tr from-blue-500 to-indigo-400 text-white text-[10px] rounded-full px-3 py-1">
-            Featured
+            Nổi bật
           </span>
         )}
       </td>
       <td className="border-y bg-white px-3 py-2  whitespace-nowrap">
         {item?.salePrice < item?.price && (
           <span className="text-xs text-gray-500 line-through">
-            ₹ {item?.price}
+            {item?.price} đ
           </span>
         )}{" "}
-        ₹ {item?.salePrice}
+        {item?.salePrice} đ
       </td>
       <td className="border-y bg-white px-3 py-2">{item?.stock}</td>
       <td className="border-y bg-white px-3 py-2">{item?.orders ?? 0}</td>
@@ -184,12 +185,12 @@ function Row({ item, index }) {
         <div className="flex">
           {item?.stock - (item?.orders ?? 0) > 0 && (
             <div className="px-2 py-1 text-xs text-green-500 bg-green-100 font-bold rounded-md">
-              Available
+              Còn hàng
             </div>
           )}
           {item?.stock - (item?.orders ?? 0) <= 0 && (
             <div className="px-2 py-1 text-xs text-red-500 bg-red-100 rounded-md">
-              Out Of Stock
+              Hết hàng
             </div>
           )}
         </div>

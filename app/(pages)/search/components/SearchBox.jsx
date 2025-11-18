@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { Button } from "@nextui-org/react";
@@ -33,15 +34,16 @@ export default function SearchBox() {
         onChange={(e) => {
           setQuery(e.target.value);
         }}
-        placeholder="Enter Product Name ..."
+        placeholder="Nhập tên sản phẩm..."
         type="text"
         className="border px-5 py-2 rounded-xl bg-white focus:outline-none"
         required
       />
       <Button type="submit">
         <Search size={13} />
-        Search
+        Tìm kiếm
       </Button>
     </form>
   );
 }
+// ...existing code...

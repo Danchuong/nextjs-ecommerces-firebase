@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import AuthContextProvider, { useAuth } from "@/contexts/AuthContext";
@@ -35,10 +36,11 @@ function AdminChecking({ children }) {
   if (!user) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
-        <h1>Please Login First!</h1>
+        <h1>Vui lòng đăng nhập trước!</h1>
       </div>
     );
   }
 
   return <AdminLayout>{children}</AdminLayout>;
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useUsers } from "@/lib/firestore/user/read";
@@ -22,11 +23,11 @@ export default function ListView() {
         <thead>
           <tr>
             <th className="font-semibold border-y bg-white px-3 py-2 border-l rounded-l-lg">
-              SN
+              STT
             </th>
-            <th className="font-semibold border-y bg-white px-3 py-2">Photo</th>
+            <th className="font-semibold border-y bg-white px-3 py-2">Ảnh</th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Name
+              Tên
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
               Email
@@ -59,3 +60,4 @@ function Row({ item, index }) {
     </tr>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import { adminDB } from "@/lib/firebase_admin";
@@ -9,7 +10,7 @@ const fetchCheckout = async (checkoutId) => {
     .where("id", "==", checkoutId)
     .get();
   if (list.docs.length === 0) {
-    throw new Error("Invalid Checkout ID");
+    throw new Error("ID thanh toán không hợp lệ");
   }
   return list.docs[0].data();
 };
@@ -22,18 +23,18 @@ export default async function Page({ searchParams }) {
       <Header />
       <section className="min-h-screen flex flex-col gap-3 justify-center items-center">
         <div className="flex justify-center w-full">
-          <img src="/svgs/Mobile payments-rafiki.svg" className="h-48" alt="" />
+          <img src="/svgs/Mobile payments-rafiki.svg" className="h-48" alt="Hình minh họa thanh toán" />
         </div>
-        <h1 className="text-2xl font-semibold">Your Payment Was Not Success</h1>
+        <h1 className="text-2xl font-semibold">Thanh toán của bạn không thành công</h1>
         <div className="flex items-center gap-4 text-sm">
           <Link href={"/"}>
             <button className="text-blue-600 border border-blue-600 px-5 py-2 rounded-lg bg-white">
-              Shop
+              Tiếp tục mua sắm
             </button>
           </Link>
           <Link href={checkout?.url}>
             <button className="bg-blue-600 border px-5 py-2 rounded-lg text-white">
-              Retry
+              Thử lại
             </button>
           </Link>
         </div>
@@ -42,3 +43,4 @@ export default async function Page({ searchParams }) {
     </main>
   );
 }
+// ...existing code...

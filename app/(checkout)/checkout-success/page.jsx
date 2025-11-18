@@ -10,7 +10,7 @@ const fetchCheckout = async (checkoutId) => {
     .where("id", "==", checkoutId)
     .get();
   if (list.docs.length === 0) {
-    throw new Error("Invalid Checkout ID");
+    throw new Error("ID thanh toán không hợp lệ");
   }
   return list.docs[0].data();
 };
@@ -22,7 +22,7 @@ const fetchPayment = async (checkoutId) => {
     .where("status", "==", "succeeded")
     .get();
   if (list.docs.length === 0) {
-    throw new Error("Invalid Checkout ID");
+    throw new Error("ID thanh toán không hợp lệ");
   }
   return list.docs[0].data();
 };
@@ -90,16 +90,16 @@ export default async function Page({ searchParams }) {
       <SuccessMessage />
       <section className="min-h-screen flex flex-col gap-3 justify-center items-center">
         <div className="flex justify-center w-full">
-          <img src="/svgs/Mobile payments-rafiki.svg" className="h-48" alt="" />
+          <img src="/svgs/Mobile payments-rafiki.svg" className="h-48" alt="Hình minh họa thanh toán" />
         </div>
         <h1 className="text-2xl font-semibold text-green">
-          Your Order Is{" "}
-          <span className="font-bold text-green-600">Successfully</span> Placed
+          Đơn hàng của bạn đã được{" "}
+          <span className="font-bold text-green-600">đặt thành công</span>
         </h1>
         <div className="flex items-center gap-4 text-sm">
           <Link href={"/account"}>
             <button className="text-blue-600 border border-blue-600 px-5 py-2 rounded-lg bg-white">
-              Go To Orders Page
+              Đi tới trang đơn hàng
             </button>
           </Link>
         </div>

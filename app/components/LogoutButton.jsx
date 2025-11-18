@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -14,12 +15,12 @@ export default function LogoutButton() {
   return (
     <button
       onClick={async () => {
-        if (!confirm("Are you sure?")) return;
+        if (!confirm("Bạn có chắc chắn không?")) return;
         try {
           await toast.promise(signOut(auth), {
             error: (e) => e?.message,
-            loading: "Loading...",
-            success: "Successfully Logged out",
+            loading: "Đang đăng xuất...",
+            success: "Đăng xuất thành công",
           });
         } catch (error) {
           toast.error(error?.message);
@@ -31,3 +32,4 @@ export default function LogoutButton() {
     </button>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -28,17 +29,18 @@ export default function Layout({ children }) {
   if (type === "cart" && (!data?.carts || data?.carts?.length === 0)) {
     return (
       <div>
-        <h2>Your Cart Is Empty</h2>
+        <h2>Giỏ hàng của bạn trống</h2>
       </div>
     );
   }
   if (type === "buynow" && !productId) {
     return (
       <div>
-        <h2>Product Not Found!</h2>
+        <h2>Không tìm thấy sản phẩm!</h2>
       </div>
     );
   }
   
   return <>{children}</>;
 }
+// ...existing code...

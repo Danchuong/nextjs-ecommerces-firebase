@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -12,7 +13,8 @@ export default function AdminButton() {
   }
   return (
     <Link href={"/admin"}>
-      <button className="text-xs font-semibold">Admin</button>
+      <button className="text-xs font-semibold">Quản trị</button>
     </Link>
   );
 }
+// ...existing code...

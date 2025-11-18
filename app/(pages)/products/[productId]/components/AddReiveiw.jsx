@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -19,7 +20,7 @@ export default function AddReview({ productId }) {
     setIsLoading(true);
     try {
       if (!user) {
-        throw new Error("Please Logged In First");
+        throw new Error("Vui lòng đăng nhập trước");
       }
       await addReview({
         displayName: userData?.displayName,
@@ -30,7 +31,7 @@ export default function AddReview({ productId }) {
         uid: user?.uid,
       });
       setMessage("");
-      toast.success("Successfully Submitted");
+      toast.success("Gửi đánh giá thành công");
     } catch (error) {
       toast.error(error?.message);
     }
@@ -39,7 +40,7 @@ export default function AddReview({ productId }) {
 
   return (
     <div className="flex flex-col gap-3 p-3 rounded-xl border w-full">
-      <h1 className="text-lg font-semibold">Rate This Products</h1>
+      <h1 className="text-lg font-semibold">Đánh giá sản phẩm này</h1>
       <Rating
         value={rating}
         onChange={(event, newValue) => {
@@ -52,7 +53,7 @@ export default function AddReview({ productId }) {
           setMessage(e.target.value);
         }}
         type="text"
-        placeholder="Enter you thoughts on this products ..."
+        placeholder="Nhập cảm nghĩ của bạn về sản phẩm..."
         className="w-full border border-lg px-4 py-2 focus:outline-none"
       />
       <Button
@@ -60,8 +61,9 @@ export default function AddReview({ productId }) {
         isLoading={isLoading}
         isDisabled={isLoading}
       >
-        Submit
+        Gửi
       </Button>
     </div>
   );
 }
+// ...existing code...

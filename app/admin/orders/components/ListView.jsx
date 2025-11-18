@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAllOrders } from "@/lib/firestore/orders/read";
@@ -60,25 +61,25 @@ export default function ListView() {
         <thead>
           <tr>
             <th className="font-semibold border-y bg-white px-3 py-2 border-l rounded-l-lg">
-              SN
+              STT
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Customer
+              Khách hàng
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Total Price
+              Tổng giá
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Total Products
+              Tổng sản phẩm
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Payment Mode
+              Phương thức thanh toán
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Status
+              Trạng thái
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 border-r rounded-r-lg text-center">
-              Actions
+              Hành động
             </th>
           </tr>
         </thead>
@@ -101,7 +102,7 @@ export default function ListView() {
           size="sm"
           variant="bordered"
         >
-          Previous
+          Trước
         </Button>
         <select
           value={pageLimit}
@@ -110,11 +111,11 @@ export default function ListView() {
           name="perpage"
           id="perpage"
         >
-          <option value={3}>3 Items</option>
-          <option value={5}>5 Items</option>
-          <option value={10}>10 Items</option>
-          <option value={20}>20 Items</option>
-          <option value={100}>100 Items</option>
+          <option value={3}>3 mục</option>
+          <option value={5}>5 mục</option>
+          <option value={10}>10 mục</option>
+          <option value={20}>20 mục</option>
+          <option value={100}>100 mục</option>
         </select>
         <Button
           isDisabled={isLoading || orders?.length === 0}
@@ -122,7 +123,7 @@ export default function ListView() {
           size="sm"
           variant="bordered"
         >
-          Next
+          Tiếp
         </Button>
       </div>
     </div>
@@ -150,7 +151,7 @@ function Row({ item, index }) {
         </div>
       </td>
       <td className="border-y bg-white px-3 py-2  whitespace-nowrap">
-        ₹ {totalAmount}
+        {totalAmount} đ
       </td>
       <td className="border-y bg-white px-3 py-2">
         {item?.checkout?.line_items?.length}
@@ -173,7 +174,7 @@ function Row({ item, index }) {
         <div className="flex">
           <Link href={`/admin/orders/${item?.id}`}>
             <button className="bg-black text-white px-3 py-2 rounded-lg text-xs">
-              View
+              Xem
             </button>
           </Link>
         </div>
@@ -181,3 +182,4 @@ function Row({ item, index }) {
     </tr>
   );
 }
+// ...existing code...

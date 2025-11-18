@@ -27,7 +27,7 @@ export default function RevenueChart({ items }) {
     labels: items?.map((item) => item?.date),
     datasets: [
       {
-        label: "Revenue",
+        label: "Doanh thu",
         data: items?.map((item) => (item?.data?.totalRevenue ?? 0) / 100),
         backgroundColor: "#879fff20",
         borderColor: "#879fff80",
@@ -44,7 +44,7 @@ export default function RevenueChart({ items }) {
       },
       title: {
         display: true,
-        text: "Revenue Line Chart",
+        text: "Biểu đồ đường doanh thu",
       },
     },
     scales: {

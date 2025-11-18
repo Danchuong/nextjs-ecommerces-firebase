@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -20,7 +21,7 @@ export default function HeaderClientButtons() {
             content={data?.favorites?.length ?? 0}
           >
             <button
-              title="My Favorites"
+              title="Sản phẩm yêu thích"
               className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
             >
               <Heart size={14} />
@@ -29,7 +30,7 @@ export default function HeaderClientButtons() {
         )}
         {(data?.favorites?.length ?? 0) === 0 && (
           <button
-            title="My Favorites"
+            title="Sản phẩm yêu thích"
             className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
           >
             <Heart size={14} />
@@ -45,7 +46,7 @@ export default function HeaderClientButtons() {
             content={data?.carts?.length ?? 0}
           >
             <button
-              title="My Cart"
+              title="Giỏ hàng"
               className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
             >
               <ShoppingCart size={14} />
@@ -54,7 +55,7 @@ export default function HeaderClientButtons() {
         )}
         {(data?.carts?.length ?? 0) === 0 && (
           <button
-            title="My Cart"
+            title="Giỏ hàng"
             className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
           >
             <ShoppingCart size={14} />
@@ -64,3 +65,4 @@ export default function HeaderClientButtons() {
     </div>
   );
 }
+// ...existing code...

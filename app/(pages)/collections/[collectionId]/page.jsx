@@ -1,3 +1,4 @@
+// ...existing code...
 import { ProductCard } from "@/app/components/Products";
 import { getCollection } from "@/lib/firestore/collections/read_server";
 import { getProduct } from "@/lib/firestore/products/read_server";
@@ -7,7 +8,7 @@ export async function generateMetadata({ params }) {
   const collection = await getCollection({ id: collectionId });
 
   return {
-    title: `${collection?.title} | Collection`,
+    title: `${collection?.title} | Bộ sưu tập`,
     description: collection?.subTitle ?? "",
     openGraph: {
       images: [collection?.imageURL],
@@ -22,7 +23,7 @@ export default async function Page({ params }) {
     <main className="flex justify-center p-5 md:px-10 md:py-5 w-full">
       <div className="flex flex-col gap-6 max-w-[900px] p-5">
         <div className="w-full flex justify-center">
-          <img className="h-[110px]" src={collection?.imageURL} alt="" />
+          <img className="h-[110px]" src={collection?.imageURL} alt="Ảnh bộ sưu tập" />
         </div>
         <h1 className="text-center font-semibold text-4xl">
           {collection.title}
@@ -42,3 +43,4 @@ async function Product({ productId }) {
   const product = await getProduct({ id: productId });
   return <ProductCard product={product} />;
 }
+// ...existing code...

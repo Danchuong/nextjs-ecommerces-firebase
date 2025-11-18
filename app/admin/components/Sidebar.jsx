@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { auth } from "@/lib/firebase";
@@ -21,47 +22,47 @@ import toast from "react-hot-toast";
 export default function Sidebar() {
   const menuList = [
     {
-      name: "Dashboard",
+      name: "Bảng điều khiển",
       link: "/admin",
       icon: <LayoutDashboard className="h-5 w-5" />,
     },
     {
-      name: "Products",
+      name: "Sản phẩm",
       link: "/admin/products",
       icon: <PackageOpen className="h-5 w-5" />,
     },
     {
-      name: "Categories",
+      name: "Danh mục",
       link: "/admin/categories",
       icon: <Layers2 className="h-5 w-5" />,
     },
     {
-      name: "Brands",
+      name: "Thương hiệu",
       link: "/admin/brands",
       icon: <Cat className="h-5 w-5" />,
     },
     {
-      name: "Orders",
+      name: "Đơn hàng",
       link: "/admin/orders",
       icon: <ShoppingCart className="h-5 w-5" />,
     },
     {
-      name: "Customers",
+      name: "Khách hàng",
       link: "/admin/customers",
       icon: <User className="h-5 w-5" />,
     },
     {
-      name: "Reviews",
+      name: "Đánh giá",
       link: "/admin/reviews",
       icon: <Star className="h-5 w-5" />,
     },
     {
-      name: "Collections",
+      name: "Bộ sưu tập",
       link: "/admin/collections",
       icon: <LibraryBig className="h-5 w-5" />,
     },
     {
-      name: "Admins",
+      name: "Quản trị viên",
       link: "/admin/admins",
       icon: <ShieldCheck className="h-5 w-5" />,
     },
@@ -70,7 +71,7 @@ export default function Sidebar() {
     <section className="sticky top-0 flex flex-col gap-10 bg-white border-r px-5 py-3 h-screen overflow-hidden w-[260px] z-50">
       <div className="flex justify-center py-4">
         <Link href={`/`}>
-          <img className="h-8" src="/logo.png" alt="" />
+          <img className="h-8" src="/logo.png" alt="Logo" />
         </Link>
       </div>
       <ul className="flex-1 h-full overflow-y-auto flex flex-col gap-4">
@@ -83,17 +84,17 @@ export default function Sidebar() {
           onClick={async () => {
             try {
               await toast.promise(signOut(auth), {
-                error: (e) => e?.message,
-                loading: "Loading...",
-                success: "Successfully Logged out",
+                error: (e) => e?.message ?? "Lỗi",
+                loading: "Đang đăng xuất...",
+                success: "Đăng xuất thành công",
               });
             } catch (error) {
-              toast.error(error?.message);
+              toast.error(error?.message ?? "Lỗi");
             }
           }}
           className="flex gap-2 items-center px-3 py-2 hover:bg-indigo-100 rounded-xl w-full justify-center ease-soft-spring duration-400 transition-all"
         >
-          <LogOut className="h-5 w-5" /> Logout
+          <LogOut className="h-5 w-5" /> Đăng xuất
         </button>
       </div>
     </section>
@@ -115,3 +116,4 @@ function Tab({ item }) {
     </Link>
   );
 }
+// ...existing code...

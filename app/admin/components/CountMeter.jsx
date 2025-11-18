@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useOrdersCounts } from "@/lib/firestore/orders/read_count";
@@ -10,18 +11,18 @@ export default function CountMeter() {
   const { data: ordersCounts } = useOrdersCounts();
   return (
     <section className="grid grid-cols-2 md:grid-cols-4 gap-5">
-      <Card imgURL={"/box.png"} title={"Products"} value={totalProduct ?? 0} />
+      <Card imgURL={"/box.png"} title={"Sản phẩm"} value={totalProduct ?? 0} />
       <Card
         imgURL={"/received.png"}
-        title={"Orders"}
+        title={"Đơn hàng"}
         value={ordersCounts?.totalOrders ?? 0}
       />
       <Card
         imgURL={"/profit-up.png"}
-        title={"Revenue"}
-        value={`₹ ${(ordersCounts?.totalRevenue ?? 0) / 100}`}
+        title={"Doanh thu"}
+        value={`${(ordersCounts?.totalRevenue ?? 0) / 100} đ`}
       />
-      <Card imgURL={"/team.png"} title={"Customer"} value={totalUsers ?? 0} />
+      <Card imgURL={"/team.png"} title={"Khách hàng"} value={totalUsers ?? 0} />
     </section>
   );
 }
@@ -37,3 +38,4 @@ function Card({ title, value, imgURL }) {
     </div>
   );
 }
+// ...existing code...

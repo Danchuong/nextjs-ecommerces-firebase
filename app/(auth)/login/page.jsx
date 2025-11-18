@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -32,7 +33,7 @@ export default function Page() {
     setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, data?.email, data?.password);
-      toast.success("Logged In Successfully");
+      toast.success("Đăng nhập thành công");
     } catch (error) {
       toast.error(error?.message);
     }
@@ -49,10 +50,10 @@ export default function Page() {
     <main className="w-full flex justify-center items-center bg-gray-300 md:p-24 p-10 min-h-screen">
       <section className="flex flex-col gap-3">
         <div className="flex justify-center">
-          <img className="h-12" src="/logo.png" alt="Logo" />
+          <img className="h-12" src="/logo.png" alt="Biểu tượng" />
         </div>
         <div className="flex flex-col gap-3 bg-white md:p-10 p-5 rounded-xl md:min-w-[440px] w-full">
-          <h1 className="font-bold text-xl">Login With Email</h1>
+          <h1 className="font-bold text-xl">Đăng nhập bằng Email</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -61,7 +62,7 @@ export default function Page() {
             className="flex flex-col gap-3"
           >
             <input
-              placeholder="Enter Your Email"
+              placeholder="Nhập Email của bạn"
               type="email"
               name="user-email"
               id="user-email"
@@ -72,7 +73,7 @@ export default function Page() {
               className="px-3 py-2 rounded-xl border focus:outline-none w-full"
             />
             <input
-              placeholder="Enter Your Password"
+              placeholder="Nhập Mật khẩu của bạn"
               type="password"
               name="user-password"
               id="user-password"
@@ -88,18 +89,18 @@ export default function Page() {
               type="submit"
               color="primary"
             >
-              Login
+              Đăng nhập
             </Button>
           </form>
           <div className="flex justify-between">
             <Link href={`/sign-up`}>
               <button className="font-semibold text-sm text-blue-700">
-                New? Create Account
+                Mới? Tạo tài khoản
               </button>
             </Link>
             <Link href={`/forget-password`}>
               <button className="font-semibold text-sm text-blue-700">
-                Forget Password?
+                Quên mật khẩu?
               </button>
             </Link>
           </div>
@@ -130,7 +131,8 @@ function SignInWithGoogleComponent() {
   };
   return (
     <Button isLoading={isLoading} isDisabled={isLoading} onClick={handleLogin}>
-      Sign In With Google
+      Đăng nhập bằng Google
     </Button>
   );
 }
+// ...existing code...

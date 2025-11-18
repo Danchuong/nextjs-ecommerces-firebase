@@ -1,3 +1,4 @@
+// ...existing code...
 export default function Images({
   data,
   setFeatureImage,
@@ -7,14 +8,14 @@ export default function Images({
 }) {
   return (
     <section className="flex flex-col gap-3 bg-white border p-4 rounded-xl">
-      <h1 className="font-semibold">Images</h1>
+      <h1 className="font-semibold">Hình ảnh</h1>
       <div className="flex flex-col gap-1">
         {data?.featureImageURL && !featureImage && (
           <div className="flex justify-center">
             <img
               className="h-20 object-cover rounded-lg"
               src={data?.featureImageURL}
-              alt=""
+              alt="Ảnh đại diện"
             />
           </div>
         )}
@@ -23,7 +24,7 @@ export default function Images({
             <img
               className="h-20 object-cover rounded-lg"
               src={URL.createObjectURL(featureImage)}
-              alt=""
+              alt="Ảnh đại diện (mới)"
             />
           </div>
         )}
@@ -31,7 +32,7 @@ export default function Images({
           className="text-gray-500 text-xs"
           htmlFor="product-feature-image"
         >
-          Feature Image <span className="text-red-500">*</span>{" "}
+          Ảnh đại diện <span className="text-red-500">*</span>{" "}
         </label>
         <input
           type="file"
@@ -53,7 +54,7 @@ export default function Images({
                 <img
                   className="w-20 object-cover rounded-lg"
                   src={item}
-                  alt=""
+                  alt="Ảnh sản phẩm"
                 />
               );
             })}
@@ -66,14 +67,14 @@ export default function Images({
                 <img
                   className="w-20 object-cover rounded-lg"
                   src={URL.createObjectURL(item)}
-                  alt=""
+                  alt="Ảnh sản phẩm (mới)"
                 />
               );
             })}
           </div>
         )}
         <label className="text-gray-500 text-xs" htmlFor="product-images">
-          Images <span className="text-red-500">*</span>{" "}
+          Ảnh sản phẩm <span className="text-red-500">*</span>{" "}
         </label>
         <input
           type="file"
@@ -93,3 +94,4 @@ export default function Images({
     </section>
   );
 }
+// ...existing code...

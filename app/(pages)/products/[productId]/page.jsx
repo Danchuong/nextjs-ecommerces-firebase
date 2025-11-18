@@ -6,18 +6,20 @@ import RelatedProducts from "./components/RelatedProducts";
 import AddReview from "./components/AddReiveiw";
 import AuthContextProvider from "@/contexts/AuthContext";
 
+// ...existing code...
 export async function generateMetadata({ params }) {
   const { productId } = params;
   const product = await getProduct({ id: productId });
 
   return {
-    title: `${product?.title} | Product`,
+    title: `${product?.title} | Sản phẩm`,
     description: product?.shortDescription ?? "",
     openGraph: {
       images: [product?.featureImageURL],
     },
   };
 }
+// ...existing code...
 
 export default async function Page({ params }) {
   const { productId } = params;

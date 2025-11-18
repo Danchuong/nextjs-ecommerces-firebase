@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -23,7 +24,7 @@ export default function AddToCartButton({ productId, type }) {
     try {
       if (!user?.uid) {
         router.push("/login");
-        throw new Error("Please Logged In First!");
+        throw new Error("Vui lòng đăng nhập trước!");
       }
       if (isAdded) {
         const newList = data?.carts?.filter((item) => item?.id != productId);
@@ -49,8 +50,8 @@ export default function AddToCartButton({ productId, type }) {
         variant="bordered"
         className=""
       >
-        {!isAdded && "Add To Cart"}
-        {isAdded && "Click To Remove"}
+        {!isAdded && "Thêm vào giỏ"}
+        {isAdded && "Bỏ khỏi giỏ"}
       </Button>
     );
   }
@@ -68,8 +69,8 @@ export default function AddToCartButton({ productId, type }) {
       >
         {!isAdded && <AddShoppingCartIcon className="text-xs" />}
         {isAdded && <ShoppingCartIcon className="text-xs" />}
-        {!isAdded && "Add To Cart"}
-        {isAdded && "Click To Remove"}
+        {!isAdded && "Thêm vào giỏ"}
+        {isAdded && "Bỏ khỏi giỏ"}
       </Button>
     );
   }
@@ -88,3 +89,4 @@ export default function AddToCartButton({ productId, type }) {
     </Button>
   );
 }
+// ...existing code...

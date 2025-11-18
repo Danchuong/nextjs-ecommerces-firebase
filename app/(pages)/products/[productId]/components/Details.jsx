@@ -1,3 +1,4 @@
+// ...existing code...
 import AddToCartButton from "@/app/components/AddToCartButton";
 import FavoriteButton from "@/app/components/FavoriteButton";
 import MyRating from "@/app/components/MyRating";
@@ -16,7 +17,7 @@ export default function Details({ product }) {
         <Brand brandId={product?.brandId} />
       </div>
       <h1 className="font-semibold text-xl md:text-4xl">{product?.title}</h1>
-      <Suspense fallback="Failed To Load">
+      <Suspense fallback="Tải thất bại">
         <RatingReview product={product} />
       </Suspense>
       <h2 className="text-gray-600 text-sm line-clamp-3 md:line-clamp-4">
@@ -31,7 +32,7 @@ export default function Details({ product }) {
       <div className="flex flex-wrap items-center gap-4">
         <Link href={`/checkout?type=buynow&productId=${product?.id}`}>
           <button className="bg-black text-white rounded-lg px-4 py-1.5">
-            Buy Now
+            Mua ngay
           </button>
         </Link>
         <AuthContextProvider>
@@ -44,7 +45,7 @@ export default function Details({ product }) {
       {product?.stock <= (product?.orders ?? 0) && (
         <div className="flex">
           <h3 className="text-red-500 py-1 rounded-lg text-sm font-semibold">
-            Out Of Stock
+            Hết hàng
           </h3>
         </div>
       )}
@@ -63,7 +64,7 @@ async function Category({ categoryId }) {
   return (
     <Link href={`/categories/${categoryId}`}>
       <div className="flex items-center gap-1 border px-3 py-1 rounded-full">
-        <img className="h-4" src={category?.imageURL} alt="" />
+        <img className="h-4" src={category?.imageURL} alt="Ảnh danh mục" />
         <h4 className="text-xs font-semibold">{category?.name}</h4>
       </div>
     </Link>
@@ -74,7 +75,7 @@ async function Brand({ brandId }) {
   const brand = await getBrand({ id: brandId });
   return (
     <div className="flex items-center gap-1 border px-3 py-1 rounded-full">
-      <img className="h-4" src={brand?.imageURL} alt="" />
+      <img className="h-4" src={brand?.imageURL} alt="Ảnh thương hiệu" />
       <h4 className="text-xs font-semibold">{brand?.name}</h4>
     </div>
   );
@@ -92,3 +93,4 @@ async function RatingReview({ product }) {
     </div>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAdmins } from "@/lib/firestore/admins/read";
@@ -23,19 +24,19 @@ export default function ListView() {
   }
   return (
     <div className="flex-1 flex flex-col gap-3 md:pr-5 md:px-0 px-5 rounded-xl">
-      <h1 className="text-xl">Admins</h1>
+      <h1 className="text-xl">Quản trị viên</h1>
       <table className="border-separate border-spacing-y-3">
         <thead>
           <tr>
             <th className="font-semibold border-y bg-white px-3 py-2 border-l rounded-l-lg">
-              SN
+              STT
             </th>
-            <th className="font-semibold border-y bg-white px-3 py-2">Image</th>
+            <th className="font-semibold border-y bg-white px-3 py-2">Ảnh</th>
             <th className="font-semibold border-y bg-white px-3 py-2 text-left">
-              Name
+              Tên
             </th>
             <th className="font-semibold border-y bg-white px-3 py-2 border-r rounded-r-lg text-center">
-              Actions
+              Hành động
             </th>
           </tr>
         </thead>
@@ -54,12 +55,12 @@ function Row({ item, index }) {
   const router = useRouter();
 
   const handleDelete = async () => {
-    if (!confirm("Are you sure?")) return;
+    if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
 
     setIsDeleting(true);
     try {
       await deleteAdmin({ id: item?.id });
-      toast.success("Successfully Deleted");
+      toast.success("Xóa thành công");
     } catch (error) {
       toast.error(error?.message);
     }
@@ -115,3 +116,4 @@ function Row({ item, index }) {
     </tr>
   );
 }
+// ...existing code...

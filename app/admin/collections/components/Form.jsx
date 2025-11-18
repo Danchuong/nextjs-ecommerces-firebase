@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { getCollection } from "@/lib/firestore/collections/read_server";
@@ -27,7 +28,7 @@ export default function Form() {
     try {
       const res = await getCollection({ id: id });
       if (!res) {
-        toast.error("Collection Not Found!");
+        toast.error("Không tìm thấy bộ sưu tập!");
       } else {
         setData(res);
       }
@@ -55,7 +56,7 @@ export default function Form() {
     setIsLoading(true);
     try {
       await createNewCollection({ data: data, image: image });
-      toast.success("Successfully Created");
+      toast.success("Tạo thành công");
       setData(null);
       setImage(null);
     } catch (error) {
@@ -68,7 +69,7 @@ export default function Form() {
     setIsLoading(true);
     try {
       await updateCollection({ data: data, image: image });
-      toast.success("Successfully Updated");
+      toast.success("Cập nhật thành công");
       setData(null);
       setImage(null);
       router.push(`/admin/collections`);
@@ -80,7 +81,7 @@ export default function Form() {
 
   return (
     <div className="flex flex-col gap-3 bg-white rounded-xl p-5 w-full md:w-[400px]">
-      <h1 className="font-semibold">{id ? "Update" : "Create"} Collection</h1>
+      <h1 className="font-semibold">{id ? "Cập nhật" : "Tạo"} Bộ sưu tập</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -94,7 +95,7 @@ export default function Form() {
       >
         <div className="flex flex-col gap-1">
           <label htmlFor="category-name" className="text-gray-500 text-sm">
-            Image <span className="text-red-500">*</span>{" "}
+            Ảnh <span className="text-red-500">*</span>{" "}
           </label>
           {image && (
             <div className="flex justify-center items-center p-3">
@@ -115,13 +116,13 @@ export default function Form() {
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="collection-title" className="text-gray-500 text-sm">
-            Title <span className="text-red-500">*</span>{" "}
+            Tiêu đề <span className="text-red-500">*</span>{" "}
           </label>
           <input
             id="collection-title"
             name="collection-title"
             type="text"
-            placeholder="Enter Title"
+            placeholder="Nhập tiêu đề"
             value={data?.title ?? ""}
             onChange={(e) => {
               handleData("title", e.target.value);
@@ -134,7 +135,7 @@ export default function Form() {
             htmlFor="collection-sub-title"
             className="text-gray-500 text-sm"
           >
-            Sub Title <span className="text-red-500">*</span>{" "}
+            Phụ đề <span className="text-red-500">*</span>{" "}
           </label>
           <input
             id="collection-sub-title"
@@ -144,7 +145,7 @@ export default function Form() {
             onChange={(e) => {
               handleData("subTitle", e.target.value);
             }}
-            placeholder="Enter Sub Title"
+            placeholder="Nhập phụ đề"
             className="border px-4 py-2 rounded-lg w-full focus:outline-none"
           />
         </div>
@@ -164,7 +165,7 @@ export default function Form() {
             htmlFor="collection-sub-title"
             className="text-gray-500 text-sm"
           >
-            Select Product <span className="text-red-500">*</span>{" "}
+            Chọn sản phẩm <span className="text-red-500">*</span>{" "}
           </label>
           <select
             id="collection-products"
@@ -182,7 +183,7 @@ export default function Form() {
             }}
             className="border px-4 py-2 rounded-lg w-full focus:outline-none"
           >
-            <option value="">Select Product</option>
+            <option value="">Chọn sản phẩm</option>
             {products?.map((item) => {
               return (
                 <option
@@ -196,7 +197,7 @@ export default function Form() {
           </select>
         </div>
         <Button isLoading={isLoading} isDisabled={isLoading} type="submit">
-          {id ? "Update" : "Create"}
+          {id ? "Cập nhật" : "Tạo"}
         </Button>
       </form>
     </div>
@@ -226,3 +227,5 @@ function ProductCard({ productId, setData }) {
     </div>
   );
 }
+
+// ...existing code...

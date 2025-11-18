@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -8,6 +9,7 @@ import { Button, CircularProgress } from "@nextui-org/react";
 import { Minus, Plus, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function Page() {
   const { user } = useAuth();
@@ -21,14 +23,14 @@ export default function Page() {
   }
   return (
     <main className="flex flex-col gap-3 justify-center items-center p-5">
-      <h1 className="text-2xl font-semibold">Cart</h1>
+      <h1 className="text-2xl font-semibold">Giỏ hàng</h1>
       {(!data?.carts || data?.carts?.length === 0) && (
         <div className="flex flex-col gap-5 justify-center items-center h-full w-full py-20">
           <div className="flex justify-center">
             <img className="h-[200px]" src="/svgs/Empty-pana.svg" alt="" />
           </div>
           <h1 className="text-gray-600 font-semibold">
-            Please Add Products To Cart
+            Vui lòng thêm sản phẩm vào giỏ hàng
           </h1>
         </div>
       )}
@@ -40,7 +42,7 @@ export default function Page() {
       <div>
         <Link href={`/checkout?type=cart`}>
           <button className="bg-blue-500 px-5 py-2 text-sm rounded-lg text-white">
-            Checkout
+            Thanh toán
           </button>
         </Link>
       </div>
@@ -58,7 +60,7 @@ function ProductItem({ item }) {
   const { data: product } = useProduct({ productId: item?.id });
 
   const handleRemove = async () => {
-    if (!confirm("Are you sure?")) return;
+    if (!confirm("Bạn có chắc chắn không?")) return;
     setIsRemoving(true);
     try {
       const newList = data?.carts?.filter((d) => d?.id != item?.id);
@@ -95,15 +97,15 @@ function ProductItem({ item }) {
         <img
           className="w-full h-full object-cover rounded-lg"
           src={product?.featureImageURL}
-          alt=""
+          alt={product?.title ?? "Ảnh sản phẩm"}
         />
       </div>
       <div className="flex flex-col gap-1 w-full">
         <h1 className="text-sm font-semibold">{product?.title}</h1>
         <h1 className="text-green-500 text-sm">
-          ₹ {product?.salePrice}{" "}
+          {product?.salePrice} đ
           <span className="line-through text-xs text-gray-500">
-            ₹ {product?.price}
+            {product?.price} đ
           </span>
         </h1>
         <div className="flex text-xs items-center gap-2">
@@ -147,3 +149,4 @@ function ProductItem({ item }) {
     </div>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -17,17 +18,17 @@ export default function Reviews({ productId }) {
   const { data: userData } = useUser({ uid: user?.uid });
 
   const handleDelete = async () => {
-    if (!confirm("Are you sure?")) return;
+    if (!confirm("Bạn có chắc chắn không?")) return;
     setIsLoading(true);
     try {
       if (!user) {
-        throw new Error("Please Logged In First");
+        throw new Error("Vui lòng đăng nhập trước");
       }
       await deleteReview({
         uid: user?.uid,
         productId: productId,
       });
-      toast.success("Successfully Deleted");
+      toast.success("Xóa thành công");
     } catch (error) {
       toast.error(error?.message);
     }
@@ -36,7 +37,7 @@ export default function Reviews({ productId }) {
 
   return (
     <div className="flex flex-col gap-3 p-3 rounded-xl border w-full">
-      <h1 className="text-lg font-semibold">Reviews</h1>
+      <h1 className="text-lg font-semibold">Đánh giá</h1>
       <div className="flex flex-col gap-4">
         {data?.map((item) => {
           return (
@@ -73,3 +74,4 @@ export default function Reviews({ productId }) {
     </div>
   );
 }
+// ...existing code...

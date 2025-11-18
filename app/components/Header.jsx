@@ -1,3 +1,4 @@
+// ...existing code...
 import { Heart, Search, ShoppingCart, UserCircle2 } from "lucide-react";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
@@ -8,17 +9,17 @@ import AdminButton from "./AdminButton";
 export default function Header() {
   const menuList = [
     {
-      name: "Home",
+      name: "Trang chủ",
       link: "/",
     },
-    {
-      name: "About",
-      link: "/about-us",
-    },
-    {
-      name: "Contact",
-      link: "/contact-us",
-    },
+    // {
+    //   name: "Giới thiệu",
+    //   link: "/about-us",
+    // },
+    // {
+    //   name: "Liên hệ",
+    //   link: "/contact-us",
+    // },
   ];
   return (
     <nav className="sticky top-0 z-50 bg-white bg-opacity-65 backdrop-blur-2xl py-3 px-4 md:py-4 md:px-16 border-b flex items-center justify-between">
@@ -42,7 +43,7 @@ export default function Header() {
         </AuthContextProvider>
         <Link href={`/search`}>
           <button
-            title="Search Products"
+            title="Tìm sản phẩm"
             className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
           >
             <Search size={14} />
@@ -53,7 +54,7 @@ export default function Header() {
         </AuthContextProvider>
         <Link href={`/account`}>
           <button
-            title="My Account"
+            title="Tài khoản của tôi"
             className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
           >
             <UserCircle2 size={14} />
@@ -66,3 +67,4 @@ export default function Header() {
     </nav>
   );
 }
+// ...existing code...

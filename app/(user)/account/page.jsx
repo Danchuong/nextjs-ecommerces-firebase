@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
@@ -23,13 +24,13 @@ export default function Page() {
 
   return (
     <main className="flex flex-col gap-4 p-5">
-      <h1 className="text-2xl font-semibold">My Orders</h1>
+      <h1 className="text-2xl font-semibold">Đơn hàng của tôi</h1>
       {(!orders || orders?.length === 0) && (
         <div className="flex flex-col items-center justify-center gap-3 py-11">
           <div className="flex justify-center">
             <img className="h-44" src="/svgs/Empty-pana.svg" alt="" />
           </div>
-          <h1>You have no order</h1>
+          <h1>Bạn chưa có đơn hàng</h1>
         </div>
       )}
       <div className="flex flex-col gap-3">
@@ -51,9 +52,9 @@ export default function Page() {
                     {item?.paymentMode}
                   </h3>
                   <h3 className="bg-green-100 text-green-500 text-xs rounded-lg px-2 py-1 uppercase">
-                    {item?.status ?? "pending"}
+                    {item?.status ?? "đang xử lý"}
                   </h3>
-                  <h3 className="text-green-600">₹ {totalAmount}</h3>
+                  <h3 className="text-green-600">{totalAmount} đ</h3>
                 </div>
                 <h4 className="text-gray-600 text-xs">
                   {item?.timestampCreate?.toDate()?.toString()}
@@ -66,15 +67,15 @@ export default function Page() {
                       <img
                         className="h-10 w-10 rounded-lg"
                         src={product?.price_data?.product_data?.images?.[0]}
-                        alt="Product Image"
+                        alt="Ảnh sản phẩm"
                       />
                       <div>
                         <h1 className="">
                           {product?.price_data?.product_data?.name}
                         </h1>
                         <h1 className="text-gray-500 text-xs">
-                          ₹ {product?.price_data?.unit_amount / 100}{" "}
-                          <span>X</span>{" "}
+                          {product?.price_data?.unit_amount / 100} đ
+                          <span></span>{" "}
                           <span>{product?.quantity?.toString()}</span>
                         </h1>
                       </div>
@@ -89,3 +90,4 @@ export default function Page() {
     </main>
   );
 }
+// ...existing code...

@@ -1,3 +1,4 @@
+// ...existing code...
 "use client";
 
 import Slider from "react-slick";
@@ -38,32 +39,32 @@ export default function Brands({ brands }) {
     ],
   };
 
-  if (brands.length === 0) {
-    return <></>;
+  if (!brands || brands.length === 0) {
+    return <div className="text-center text-gray-500">Không có thương hiệu</div>;
   }
 
   return (
     <div className="flex flex-col gap-8 justify-center overflow-hidden md:p-10 p-5">
       <Slider {...settings}>
-        {(brands?.length <= 2
-          ? [...brands, ...brands, ...brands]
-          : brands
-        )?.map((brand) => {
-          return (
-            <div className="px-2">
-              <div className="flex flex-col gap-2 items-center justify-center">
-                <div className="h-20 rounded-lg md:p-5 p-2 border overflow-hidden">
-                  <img
-                    className="h-full w-full object-cover"
-                    src={brand?.imageURL}
-                    alt=""
-                  />
+        {(brands?.length <= 2 ? [...brands, ...brands, ...brands] : brands)?.map(
+          (brand) => {
+            return (
+              <div className="px-2" role="group" aria-label={`Thương hiệu ${brand?.name ?? ""}`}>
+                <div className="flex flex-col gap-2 items-center justify-center">
+                  <div className="h-20 rounded-lg md:p-5 p-2 border overflow-hidden">
+                    <img
+                      className="h-full w-full object-cover"
+                      src={brand?.imageURL}
+                      alt={brand?.name ?? "Ảnh thương hiệu"}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          }
+        )}
       </Slider>
     </div>
   );
 }
+// ...existing code...
