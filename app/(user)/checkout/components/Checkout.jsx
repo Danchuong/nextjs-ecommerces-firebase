@@ -186,14 +186,14 @@ export default function Checkout({ productList }) {
                   <div className="flex-1 flex flex-col">
                     <h1 className="text-sm">{item?.product?.title}</h1>
                     <h3 className="text-green-600 font-semibold text-[10px]">
-                      {item?.product?.salePrice} đ
+                      {item?.product?.salePrice}đ {" "}
                       <span className="text-black">x</span>
                       <span className="text-gray-600">{item?.quantity}</span>
                     </h3>
                   </div>
                   <div>
                     <h3 className="text-sm">
-                      {item?.product?.salePrice * item?.quantity} đ
+                      {item?.product?.salePrice * item?.quantity}đ
                     </h3>
                   </div>
                 </div>
@@ -219,9 +219,9 @@ export default function Checkout({ productList }) {
                   <CheckSquare2Icon className="text-blue-500" size={13} />
                 )}
                 {paymentMode === "cod" && <Square size={13} />}
-                Thanh toán trước
+                Chuyển khoản trước
               </button>
-              <button
+              {/* <button
                 onClick={() => {
                   setPaymentMode("cod");
                 }}
@@ -232,16 +232,17 @@ export default function Checkout({ productList }) {
                   <CheckSquare2Icon className="text-blue-500" size={13} />
                 )}
                 Thanh toán khi nhận hàng
-              </button>
-            </div>
-          </div>
-          <div className="flex gap-1 items-center">
+              </button> */}
+              <div className="flex gap-1 items-center">
             <CheckSquare2Icon className="text-blue-500" size={13} />
             <h4 className="text-xs text-gray-600">
               Tôi đồng ý với{" "}
               <span className="text-blue-700">điều khoản & điều kiện</span>
             </h4>
           </div>
+            </div>
+          </div>
+          
           <Button
             isLoading={isLoading}
             isDisabled={isLoading}
@@ -250,6 +251,11 @@ export default function Checkout({ productList }) {
           >
             Đặt hàng
           </Button>
+        </section>
+        <section className="flex flex-col gap-3 border rounded-xl p-4 items-center bg-red-500">
+          <h1 className="text-xl text-white text-center font-semibold">
+            LƯU Ý: Chỉ giao hàng cho những đơn hàng trong làng Đại học Quốc gia TP.HCM
+          </h1>
         </section>
       </div>
     </section>

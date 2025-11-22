@@ -103,9 +103,9 @@ function ProductItem({ item }) {
       <div className="flex flex-col gap-1 w-full">
         <h1 className="text-sm font-semibold">{product?.title}</h1>
         <h1 className="text-green-500 text-sm">
-          {product?.salePrice} đ
+          {product?.salePrice}đ {" "}
           <span className="line-through text-xs text-gray-500">
-            {product?.price} đ
+            {product?.price}đ
           </span>
         </h1>
         <div className="flex text-xs items-center gap-2">

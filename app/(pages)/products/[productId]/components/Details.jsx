@@ -24,9 +24,9 @@ export default function Details({ product }) {
         {product?.shortDescription}
       </h2>
       <h3 className="text-green-500 font-bold text-lg">
-        ₹ {product?.salePrice}{" "}
+        {product?.salePrice}đ {" "}
         <span className="line-through text-gray-700 text-sm">
-          ₹ {product?.price}
+          {product?.price}đ
         </span>
       </h3>
       <div className="flex flex-wrap items-center gap-4">

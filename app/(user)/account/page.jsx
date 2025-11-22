@@ -63,7 +63,7 @@ export default function Page() {
               <div>
                 {item?.checkout?.line_items?.map((product) => {
                   return (
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-2 items-center m-2">
                       <img
                         className="h-10 w-10 rounded-lg"
                         src={product?.price_data?.product_data?.images?.[0]}
@@ -75,7 +75,7 @@ export default function Page() {
                         </h1>
                         <h1 className="text-gray-500 text-xs">
                           {product?.price_data?.unit_amount / 100} đ
-                          <span></span>{" "}
+                          <span></span> x {" "}
                           <span>{product?.quantity?.toString()}</span>
                         </h1>
                       </div>

@@ -2,6 +2,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
+
   return (
     <footer className="flex flex-col gap-3 w-full bg-blue-100 border-t p-5 md:p-10">
       <div className="border-b w-full flex flex-col md:flex-row md:justify-between gap-3">

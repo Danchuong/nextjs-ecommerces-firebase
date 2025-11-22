@@ -4,7 +4,7 @@ import { Rating } from "@mui/material";
 export default function CustomerReviews() {
   const list = [
     {
-      name: "Penny albritoon",
+      name: "Nguyễn Long",
       message:
         "Sản phẩm tuyệt vời, chất lượng cao và giao hàng nhanh.",
       rating: 4.5,
@@ -12,7 +12,7 @@ export default function CustomerReviews() {
         "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
     },
     {
-      name: "Oscar Nommanee",
+      name: "Khánh An",
       message:
         "Rất hài lòng với trải nghiệm mua sắm, sẽ mua lại.",
       rating: 5,
@@ -20,7 +20,7 @@ export default function CustomerReviews() {
         "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-5.jpg?v=1721992196&width=512",
     },
     {
-      name: "Emma Watsom",
+      name: "Đình Liêm",
       message:
         "Sản phẩm đúng như mô tả, dịch vụ hỗ trợ rất tốt.",
       rating: 4.5,
