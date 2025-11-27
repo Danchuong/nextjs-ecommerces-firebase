@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
-import { collection } from "firebase/firestore";
-import { Heart } from "lucide-react";
 import Link from "next/link";
 import Slider from "react-slick";
 
@@ -51,11 +48,11 @@ export default function Categories({ categories }) {
       <div className="flex justify-center w-full">
         <h1 className="text-lg font-semibold">Mua theo danh mục</h1>
       </div>
+
+
       <Slider {...settings}>
-        {(categories?.length <= 2
-          ? [...categories, ...categories, ...categories]
-          : categories
-        )?.map((category) => {
+        {categories
+          .map((category) => {
           return (
             <Link href={`/categories/${category?.id}`} key={category?.id}>
               <div className="px-2">
@@ -63,7 +60,11 @@ export default function Categories({ categories }) {
                   <div className="md:h-32 md:w-32 h-24 w-24 rounded-full md:p-5 p-2 border overflow-hidden">
                     <img
                       src={category?.imageURL}
-                      alt={category?.name ? `Ảnh danh mục ${category?.name}` : "Ảnh danh mục"}
+                      alt={
+                        category?.name
+                          ? `Ảnh danh mục ${category?.name}`
+                          : "Ảnh danh mục"
+                      }
                     />
                   </div>
                   <h1 className="font-semibold">{category?.name}</h1>
